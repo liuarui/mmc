@@ -16,7 +16,7 @@ export default async function create(...args: any): Promise<void> {
     fs.mkdirSync(`${projectName}`)
     copy(
         `${process.cwd()}/${projectName}`,
-        path.resolve(__dirname, `../template/${templateType}`)
+        path.resolve(__dirname, `../template/${templateType}`),
     )
 }
 

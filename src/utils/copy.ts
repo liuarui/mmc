@@ -2,7 +2,7 @@ import fs from 'fs'
 
 export default function copy(targetPath: string, sourcePath: string): void {
     let paths = fs.readdirSync(sourcePath)
-    paths.forEach((path) => {
+    paths.forEach(path => {
         var _source = sourcePath + '/' + path
         var _target = targetPath + '/' + path
         fs.stat(_source, function (err, stats) {
@@ -21,9 +21,9 @@ export default function copy(targetPath: string, sourcePath: string): void {
 function checkDirectory(
     targetPath: string,
     sourcePath: string,
-    callback: Function
+    callback: Function,
 ) {
-    fs.access(targetPath, fs.constants.F_OK, (err) => {
+    fs.access(targetPath, fs.constants.F_OK, err => {
         if (err) {
             fs.mkdirSync(targetPath)
             callback(targetPath, sourcePath)
